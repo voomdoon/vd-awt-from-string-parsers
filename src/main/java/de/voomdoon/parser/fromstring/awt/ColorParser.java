@@ -3,7 +3,7 @@ package de.voomdoon.parser.fromstring.awt;
 import java.awt.Color;
 import java.text.ParseException;
 
-import de.voomdoon.parser.fromstring.FromStringParsers.FromStringParser;
+import de.voomdoon.parser.fromstring.FromStringParser;
 
 /**
  * DOCME add JavaDoc for
@@ -13,6 +13,14 @@ import de.voomdoon.parser.fromstring.FromStringParsers.FromStringParser;
  * @since 0.1.0
  */
 public class ColorParser implements FromStringParser<Color> {
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Override
+	public Class<Color> getResultClass() {
+		return Color.class;
+	}
 
 	/**
 	 * @since 0.1.0

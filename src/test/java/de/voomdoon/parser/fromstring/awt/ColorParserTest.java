@@ -6,6 +6,7 @@ import java.awt.Color;
 
 import org.junit.jupiter.api.Test;
 
+import de.voomdoon.parser.fromstring.FromStringParsers;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -36,4 +37,15 @@ class ColorParserTest extends TestBase {
 		assertThat(actual).isEqualTo(new Color(1, 2, 3));
 	}
 
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
+	void testIntegration() throws Exception {
+		logTestStart();
+
+		Color actual = FromStringParsers.DEFAULT.parse(Color.class, "1,2,3");
+
+		assertThat(actual).isEqualTo(new Color(1, 2, 3));
+	}
 }
