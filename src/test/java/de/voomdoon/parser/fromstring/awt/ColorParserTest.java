@@ -41,6 +41,16 @@ class ColorParserTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
+	void testGetResultClass() throws Exception {
+		logTestStart();
+
+		assertThat(new ColorParser().getResultClass()).isEqualTo(Color.class);
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
 	void testIntegration() throws Exception {
 		logTestStart();
 
