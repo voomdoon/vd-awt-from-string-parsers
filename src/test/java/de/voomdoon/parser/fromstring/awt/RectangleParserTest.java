@@ -7,7 +7,6 @@ import java.awt.Rectangle;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.parser.fromstring.FromStringParsers;
-import de.voomdoon.parser.fromstring.awt.RectangleParser;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
