@@ -55,7 +55,7 @@ class RectangleParserTest extends TestBase {
 	void testIntegration() throws Exception {
 		logTestStart();
 
-		Rectangle actual = FromStringParsers.DEFAULT.parse(Rectangle.class, "1,2,3,4");
+		Rectangle actual = FromStringParsers.DEFAULT.parse("1,2,3,4", Rectangle.class);
 
 		assertThat(actual).isEqualTo(new Rectangle(1, 2, 3, 4));
 	}

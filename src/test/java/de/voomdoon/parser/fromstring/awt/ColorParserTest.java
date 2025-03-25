@@ -54,7 +54,7 @@ class ColorParserTest extends TestBase {
 	void testIntegration() throws Exception {
 		logTestStart();
 
-		Color actual = FromStringParsers.DEFAULT.parse(Color.class, "1,2,3");
+		Color actual = FromStringParsers.DEFAULT.parse("1,2,3", Color.class);
 
 		assertThat(actual).isEqualTo(new Color(1, 2, 3));
 	}
