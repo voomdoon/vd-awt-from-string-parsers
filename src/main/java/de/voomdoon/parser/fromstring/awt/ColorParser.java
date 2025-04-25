@@ -5,6 +5,8 @@ import java.text.ParseException;
 
 import de.voomdoon.parser.fromstring.FromStringParser;
 
+//TODO unify with de.voomdoon.util.commons.parsing.AwtParsingUtil.parseColor(String)
+
 /**
  * DOCME add JavaDoc for
  *
