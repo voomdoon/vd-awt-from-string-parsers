@@ -31,22 +31,52 @@ public class ColorParser implements FromStringParser<Color> {
 		String[] split = string.split(",");
 
 		if (split.length == 1) {
-			try {
-				return (Color) Color.class.getField(string).get(null);
-			} catch (NoSuchFieldException e) {
-				throw new NoSuchElementException("No Color constant named '" + string + "'");
-			} catch (IllegalArgumentException | IllegalAccessException | SecurityException e) {
-				throw new RuntimeException(
-						"Unexpected error while parsing Color from '" + string + "': " + e.getMessage(), e);
-			}
+			return parseColorByName(string);
 		} else if (split.length == 3) {
-			return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
+			return parseRGB(split);
 		} else if (split.length == 4) {
-			return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]),
-					Integer.parseInt(split[3]));
+			return parseRGBA(split);
 		} else {
 			throw new IllegalArgumentException("Failed to parse Color from '" + string
-					+ "': Unexpected amount of array elements: Expexting 3 but found " + split.length + "!");
+					+ "': Unexpected amount of array elements: Expecting 3 but found " + split.length + "!");
 		}
+	}
+
+	/**
+	 * @param string
+	 *            {@link String}
+	 * @return {@link Color}
+	 * @since 0.1.0
+	 */
+	private Color parseColorByName(String string) {
+		try {
+			return (Color) Color.class.getField(string).get(null);
+		} catch (NoSuchFieldException e) {
+			throw new NoSuchElementException("No Color constant named '" + string + "'");
+		} catch (IllegalArgumentException | IllegalAccessException | SecurityException e) {
+			throw new RuntimeException("Unexpected error while parsing Color from '" + string + "': " + e.getMessage(),
+					e);
+		}
+	}
+
+	/**
+	 * @param split
+	 *            {@link String} array
+	 * @return {@link Color}
+	 * @since 0.1.0
+	 */
+	private Color parseRGB(String[] split) {
+		return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
+	}
+
+	/**
+	 * @param split
+	 *            {@link String} array
+	 * @return {@link Color}
+	 * @since 0.1.0
+	 */
+	private Color parseRGBA(String[] split) {
+		return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]),
+				Integer.parseInt(split[3]));
 	}
 }
