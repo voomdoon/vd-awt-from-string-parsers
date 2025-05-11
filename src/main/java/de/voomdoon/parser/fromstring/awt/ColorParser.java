@@ -6,8 +6,6 @@ import java.util.NoSuchElementException;
 
 import de.voomdoon.parser.fromstring.FromStringParser;
 
-//TODO unify with de.voomdoon.util.commons.parsing.AwtParsingUtil.parseColor(String)
-
 /**
  * {@link FromStringParser} for {@link Color}.
  *
