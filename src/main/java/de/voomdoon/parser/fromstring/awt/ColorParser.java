@@ -30,9 +30,7 @@ public class ColorParser implements FromStringParser<Color> {
 	public Color parse(String string) throws ParseException {
 		String[] split = string.split(",");
 
-		if (split.length == 3) {
-			return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
-		} else if (split.length == 1) {
+		if (split.length == 1) {
 			try {
 				return (Color) Color.class.getField(string).get(null);
 			} catch (NoSuchFieldException e) {
@@ -41,9 +39,14 @@ public class ColorParser implements FromStringParser<Color> {
 				throw new RuntimeException(
 						"Unexpected error while parsing Color from '" + string + "': " + e.getMessage(), e);
 			}
+		} else if (split.length == 3) {
+			return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]));
+		} else if (split.length == 4) {
+			return new Color(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]),
+					Integer.parseInt(split[3]));
 		} else {
-			// TODO implement parse
-			throw new UnsupportedOperationException("Method 'parse' not implemented for '" + string + "'!");
+			throw new IllegalArgumentException("Failed to parse Color from '" + string
+					+ "': Unexpected amount of array elements: Expexting 3 but found " + split.length + "!");
 		}
 	}
 }

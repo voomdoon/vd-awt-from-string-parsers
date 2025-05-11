@@ -29,11 +29,31 @@ class ColorParserTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
+	void test_error_fiveArrayElements() throws Exception {
+		logTestStart();
+
+		assertThatThrownBy(() -> parser.parse("1,2,3,4,5")).isInstanceOf(IllegalArgumentException.class);
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
 	void test_error_nameNotFoundResultsInNoSuchElementException() throws Exception {
 		logTestStart();
 
 		assertThatThrownBy(() -> parser.parse("SOME_COLOR")).isInstanceOf(NoSuchElementException.class)
 				.hasMessageContaining("SOME_COLOR");
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
+	void test_error_twoArrayElements() throws Exception {
+		logTestStart();
+
+		assertThatThrownBy(() -> parser.parse("1,2")).isInstanceOf(IllegalArgumentException.class);
 	}
 
 	/**
@@ -48,6 +68,20 @@ class ColorParserTest extends TestBase {
 		Color actual = parser.parse(string);
 
 		assertThat(actual).isEqualTo(new Color(1, 2, 3));
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
+	void test_integer_RGBA() throws Exception {
+		logTestStart();
+
+		String string = "1,2,3,4";
+
+		Color actual = parser.parse(string);
+
+		assertThat(actual).isEqualTo(new Color(1, 2, 3, 4));
 	}
 
 	/**
