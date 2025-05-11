@@ -8,7 +8,7 @@ import de.voomdoon.parser.fromstring.FromStringParser;
 //TODO unify with de.voomdoon.util.commons.parsing.AwtParsingUtil.parseColor(String)
 
 /**
- * DOCME add JavaDoc for
+ * {@link FromStringParser} for {@link Color}.
  *
  * @author André Schulz
  *

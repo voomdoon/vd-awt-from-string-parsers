@@ -10,7 +10,7 @@ import de.voomdoon.parser.fromstring.FromStringParsers;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
- * DOCME add JavaDoc for
+ * Tests for {@link ColorParser}.
  *
  * @author André Schulz
  *

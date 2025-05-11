@@ -6,7 +6,7 @@ import java.text.ParseException;
 import de.voomdoon.parser.fromstring.FromStringParser;
 
 /**
- * DOCME add JavaDoc for
+ * {@link FromStringParser} for {@link Rectangle}.
  *
  * @author André Schulz
  *
