@@ -1,8 +1,10 @@
 package de.voomdoon.parser.fromstring.awt;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.awt.Color;
+import java.util.NoSuchElementException;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +29,17 @@ class ColorParserTest extends TestBase {
 	 * @since 0.1.0
 	 */
 	@Test
+	void test_error_nameNotFoundResultsInNoSuchElementException() throws Exception {
+		logTestStart();
+
+		assertThatThrownBy(() -> parser.parse("SOME_COLOR")).isInstanceOf(NoSuchElementException.class)
+				.hasMessageContaining("SOME_COLOR");
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
 	void test_integer_RGB() throws Exception {
 		logTestStart();
 
@@ -35,6 +48,18 @@ class ColorParserTest extends TestBase {
 		Color actual = parser.parse(string);
 
 		assertThat(actual).isEqualTo(new Color(1, 2, 3));
+	}
+
+	/**
+	 * @since 0.1.0
+	 */
+	@Test
+	void test_name() throws Exception {
+		logTestStart();
+
+		Color actual = parser.parse("RED");
+
+		assertThat(actual).isEqualTo(Color.RED);
 	}
 
 	/**
