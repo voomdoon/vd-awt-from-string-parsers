@@ -18,6 +18,11 @@ public class ColorParser implements FromStringParser<Color> {
 	/**
 	 * @since 0.1.0
 	 */
+	public static final ColorParser DEFAULT = new ColorParser();
+
+	/**
+	 * @since 0.1.0
+	 */
 	@Override
 	public Class<Color> getResultClass() {
 		return Color.class;
@@ -38,7 +43,7 @@ public class ColorParser implements FromStringParser<Color> {
 			return parseRGBA(split);
 		} else {
 			throw new IllegalArgumentException("Failed to parse Color from '" + string
-					+ "': Unexpected amount of array elements: Expecting 3 but found " + split.length + "!");
+					+ "': Unexpected amount of elements: Expecting 3 to 4 but found " + split.length + "!");
 		}
 	}
 

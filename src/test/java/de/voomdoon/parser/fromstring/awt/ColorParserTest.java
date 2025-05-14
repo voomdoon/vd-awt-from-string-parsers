@@ -23,7 +23,7 @@ class ColorParserTest extends TestBase {
 	/**
 	 * @since 0.1.0
 	 */
-	private ColorParser parser = new ColorParser();
+	private ColorParser parser = ColorParser.DEFAULT;
 
 	/**
 	 * @since 0.1.0
