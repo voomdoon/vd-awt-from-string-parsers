@@ -16,6 +16,14 @@ import de.voomdoon.parser.fromstring.FromStringParser;
 public class ColorParser implements FromStringParser<Color> {
 
 	/**
+	 * Creates a color parser.
+	 */
+	public ColorParser() {
+	}
+
+	/**
+	 * Default color parser.
+	 *
 	 * @since 0.1.0
 	 */
 	public static final ColorParser DEFAULT = new ColorParser();

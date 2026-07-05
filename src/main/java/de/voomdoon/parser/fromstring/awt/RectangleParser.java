@@ -15,6 +15,12 @@ import de.voomdoon.parser.fromstring.FromStringParser;
 public class RectangleParser implements FromStringParser<Rectangle> {
 
 	/**
+	 * Creates a rectangle parser.
+	 */
+	public RectangleParser() {
+	}
+
+	/**
 	 * @since 0.1.0
 	 */
 	@Override
